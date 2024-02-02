@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SK Airports</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #75a573;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .company-name {
+            font-size: 24px;
+        }
+
+        .navigation {
+            display: flex;
+            gap: 20px;
+        }
+
+        .navigation a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .search-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .search-bar {
+            padding: 8px;
+            width: 300px;
+            border-radius:10px;
+        }
+
+        .search-button {
+            padding: 8px 16px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: background-color 0.3s ease;
+        }
+        .search-button:hover {
+        background-color: #fff;
+         color:#4CAF50;/* Change color on hover */
+        }
+        table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #4CAF50;
+    color: #fff;
+}
+
+tr:hover {
+    background-color: #f5f5f5; /* Hover effect for rows */
+}
+        @media (max-width: 768px) {
+    /* Adjust styles for smaller screens */
+    th, td {
+        font-size: 14px;
+        padding: 8px;
+    }
+}
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="company-name">SK Airports</div>
+    <nav class="navigation">
+        <a href="#">Admin</a>
+        <a href="#">Customer</a>
+        <a href="#">Contact Us</a>
+    </nav>
+</header>
+
+<!-- The rest of your HTML content goes here -->
+<div class="search-container">
+    <input type="text" class="search-bar" placeholder="Enter Flight Number...">
+    <button class="search-button">Search Flight</button>
+</div>
+<br><br><br><br><br>
+<table border="1">
+    <thead>
+        <tr>
+            <th>Flight_number</th>
+            <th>From</th>
+            <th>To</th>
+            <th>ETA</th>
+            <th>Actual Time</th>
+            <th>Delay</th>
+            <th>Status</th>
+            <th>Gate No</th>
+        </tr>
+    </thead>
+     <tbody>
+            {% for flight in flight_data %}
+                <tr>
+                    <td>{{ flight["Flight_Number"] }}</td>
+                    <td>{{ flight["From"] }}</td>
+                    <td>{{ flight["To"] }}</td>
+                    <td>{{ flight["ETA"] }}</td>
+                    <td>{{ flight["Actual Time"] }}</td>
+                    <td>{{ flight["Delay"] }}</td>
+                    <td>{{ flight["Status"] }}</td>
+                    <td>{{ flight["Gate No"] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+</table>
+</body>
+</html>
