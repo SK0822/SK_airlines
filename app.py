@@ -1,5 +1,4 @@
 from flask import Flask, render_template
-
 from flights import generate_random_flight_data as g
 
 app = Flask(__name__,template_folder='app/templates')
